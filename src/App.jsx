@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom'
 import HomePage from './components/HomePage'
 import Browse from './components/Browse'
 import FavouritesPage from './components/Favourites'
@@ -24,7 +24,7 @@ function App() {
   }, [favorites]);
 
   const toggleFavorite = (id, strMeal, strCategory, strArea, strMealThumb, serving, isChecked) => {
-    const recipeObj = { idMeal: id, strMeal:strMeal, strCategory:strCategory, strArea:strArea, strMealThumb:strMealThumb, serving:serving,isChecked:isChecked};
+    const recipeObj = { idMeal: id, strMeal: strMeal, strCategory: strCategory, strArea: strArea, strMealThumb: strMealThumb, serving: serving, isChecked: isChecked };
     setFavorites((prev) => {
       const isAlreadySaved = prev.some(fav => fav.idMeal === id);
       if (isAlreadySaved) {
@@ -36,8 +36,8 @@ function App() {
   };
 
   const setRecipeChecked = (id, isChecked) => {
-    setFavorites((prev) => 
-      prev.map(recipe => 
+    setFavorites((prev) =>
+      prev.map(recipe =>
         recipe.idMeal === id ? { ...recipe, isChecked } : recipe
       )
     );
@@ -75,7 +75,7 @@ function App() {
   }, []);
 
   return (
-    <Router>
+    <BrowserRouter basename='/reciprix-react-trial-project/'>
       <div className="min-h-screen bg-white">
         <Navbar />
         <main>
@@ -87,7 +87,7 @@ function App() {
           </Routes>
         </main>
       </div>
-    </Router>
+    </BrowserRouter>
   )
 }
 
