@@ -47,10 +47,15 @@ const Banner = ({ items }) => {
             />
 
             {items[currentIndex].strMeal && (
-                <div className="absolute bottom-12 left-0 pl-16 pr-32 py-6 bg-gradient-to-r from-black/80 via-black/20 to-transparent z-10">
+                <div className="absolute bottom-12 left-0 pl-16 pr-32 py-10 bg-gradient-to-r from-black/80 via-black/20 to-transparent z-10 flex flex-col items-start gap-4">
                     <h1 className="text-4xl font-black font-lexend-exa uppercase tracking-[0.2em] text-white drop-shadow-2xl">
                         {items[currentIndex].strMeal}
                     </h1>
+                    <Link to={`/recipe/${items[currentIndex].idMeal}`}>
+                        <button className="px-8 py-3 bg-white text-black border-2 border-dashed border-black rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black hover:text-white hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                            View Recipe
+                        </button>
+                    </Link>
                 </div>
             )}
 
@@ -73,7 +78,7 @@ const Banner = ({ items }) => {
                     <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
             </button>
-            
+
 
         </div>
     );
@@ -88,11 +93,11 @@ const FeaturedRecipes = ({ items, toggleFavorite, favorites }) => {
             <div className="flex flex-wrap gap-6 justify-center items-center">
                 {items.map((recipe, index) => {
                     return (
-                        <RecipeCard 
-                            key={recipe.idMeal || index} 
-                            recipe={recipe} 
-                            toggleFavorite={toggleFavorite} 
-                            favorites={favorites} 
+                        <RecipeCard
+                            key={recipe.idMeal || index}
+                            recipe={recipe}
+                            toggleFavorite={toggleFavorite}
+                            favorites={favorites}
                         />
                     )
                 })}

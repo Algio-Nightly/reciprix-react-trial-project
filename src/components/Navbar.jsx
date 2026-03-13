@@ -38,9 +38,6 @@ function Navbar() {
 
             <div className="flex items-center gap-8">
                 <NavbarSearch />
-                <button className="bg-white text-black hover:bg-gray-200 px-8 py-2 rounded-xl text-base font-black transition-all duration-300 active:scale-95 shadow-xl">
-                    Search
-                </button>
             </div>
         </nav>
     );

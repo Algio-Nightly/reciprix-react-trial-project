@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import RecipePage from './components/Recipe';
 function App() {
-  const randomItemsNumber = 25;
+  const randomItemsNumber = 20;
   const [randomRecipesBanner, setRandomRecipesBanner] = useState([]);
   const [randomRecipes, setRandomRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
